@@ -1,12 +1,7 @@
-#include "holberton.h"
-/**
- * main - Entry point
- *
- * Return: Always 0 (Success)
- */
+#include "main.h"
 int main(void)
 {
-	char *sh = "Holberton";
+	char *sh = "Main";
 
 	while (*sh)
 	{
