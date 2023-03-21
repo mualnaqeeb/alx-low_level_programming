@@ -1,7 +1,7 @@
 #include "main.h"
 int main(void)
 {
-	char *sh = "Main";
+	char *sh = "_putchar";
 
 	while (*sh)
 	{
