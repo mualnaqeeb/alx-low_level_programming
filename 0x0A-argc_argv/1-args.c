@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- * main - check the code for Holberton School students.
+ * main - check the code.
  * @argv: The character to print
  * @argc: The character to print
  * Return: Always 0.
