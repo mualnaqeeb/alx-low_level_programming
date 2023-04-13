@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 	int i, j, k, len1, len2, len, d1, d2, d1d2, carry, *mul;
 
 	if (argc != 3 || !(_isnumber(argv[1])) || !(_isnumber(argv[2])))
-		_error(), exit(98);
+		 exit(98);
 	num1 = argv[1], num2 = argv[2];
 	len1 = _strlen(num1), len2 = _strlen(num2), len = len1 + len2;
 	mul = _calloc(len, sizeof(int));
@@ -73,21 +73,6 @@ int _isnumber(char *str)
 			return (0);
 	}
 	return (1);
-}
-
-/**
- * _error - print error
- * Return: void
- */
-
-void _error(void)
-{
-	int i;
-	char error[] = "Error";
-
-	for (i = 0; i < 5; i++)
-		_putchar(error[i]);
-	_putchar('\n');
 }
 
 /**
