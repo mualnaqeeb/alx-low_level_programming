@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 	int i, j, k, len1, len2, len, d1, d2, d1d2, carry, *mul;
 
 	if (argc != 3 || !(_isnumber(argv[1])) || !(_isnumber(argv[2])))
-		_error(), exit(98);
+		printf("Error\n"), exit(98);
 	num1 = argv[1], num2 = argv[2];
 	len1 = _strlen(num1), len2 = _strlen(num2), len = len1 + len2;
 	mul = _calloc(len, sizeof(int));
@@ -76,21 +76,6 @@ int _isnumber(char *str)
 }
 
 /**
- * _error - print error
- * Return: void
- */
-
-void _error(void)
-{
-	int i;
-	char error[] = "Error";
-
-	for (i = 0; i < 5; i++)
-		_putchar(error[i]);
-	_putchar('\n');
-}
-
-/**
  * _strlen - function that returns the length of a string
  *
  * @s: parameter defined in main
@@ -108,5 +93,52 @@ int _strlen(char *s)
 		s++;
 	}
 	return (i);
+}
+
+/**
+ * _calloc - function that allocates memory for an array, using malloc
+ * @nmemb: size of the memory space to allocate in bytes
+ * @size: size of type
+ * Return: void pointer
+ */
+
+void *_calloc(unsigned int nmemb, unsigned int size)
+{
+	void *ptr;
+
+	if (nmemb == 0 || size == 0)
+		return (NULL);
+
+	ptr = malloc(nmemb * size);
+	if (ptr == NULL)
+	{
+		return (NULL);
+	}
+	_memset(ptr, 0, size * nmemb);
+	return (ptr);
+}
+
+/**
+ * _memset - function that fills memory with a constant byte
+ *
+ * @s: parameter defined in main, pointer to memory area
+ * @b: parameter defined in main, constant byte
+ * @n: parameter defined in main, number of bytes to be filled
+ *
+ * Return: memory address of function (memory area)
+ */
+
+char *_memset(char *s, char b, unsigned int n)
+{
+	unsigned int i;
+	char *tmp = s;
+
+	for (i = 0; i < n; i++)
+	{
+		*s = b;
+		s++;
+	}
+	s = tmp;
+	return (s);
 }
 
