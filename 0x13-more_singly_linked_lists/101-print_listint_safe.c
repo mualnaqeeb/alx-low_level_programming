@@ -11,30 +11,28 @@
 
 size_t print_listint_safe(const listint_t *head)
 {
-    const listint_t *current, *next;
-    size_t count = 0;
+	const listint_t *new, *comp;
+	size_t count_new = 0, count_comp = 0;
 
-    if (head == NULL)
-        exit(98);
-
-    current = head;
-
-    while (current != NULL)
-    {
-        printf("[%p] %d\n", (void *)current, current->n);
-        count++;
-
-        next = current->next;
-
-        /* Check if the next node has already been visited */
-        if (next != NULL && next <= current)
-        {
-            printf("-> [%p] %d\n", (void *)next, next->n);
-            exit(98);
-        }
-
-        current = next;
-    }
-
-    return (count);
+	new = head;
+	comp = head;
+	while (new != NULL)
+	{
+		while (count_new > count_comp)
+		{
+			if (new == comp)
+			{
+				printf("-> [%p] %d\n", (void *)new, new->n);
+				return (count_new);
+			}
+			count_comp++;
+			comp = comp->next;
+		}
+		comp = head;
+		count_comp = 0;
+		printf("[%p] %d\n", (void *)new, new->n);
+		count_new++;
+		new = new->next;
+	}
+	return (count_new);
 }
