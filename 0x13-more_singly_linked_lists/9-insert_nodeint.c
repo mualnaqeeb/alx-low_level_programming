@@ -16,7 +16,7 @@ unsigned int i;
 /* Create new node */
 new_node = malloc(sizeof(listint_t));
 if (new_node == NULL)
-return NULL;
+return (NULL);
 new_node->n = n;
 
 /* Traverse to node before given index */
@@ -32,7 +32,7 @@ current_node = current_node->next;
 if (i != idx)
 {
 free(new_node);
-return NULL;
+return (NULL);
 }
 
 /* Insert new node */
