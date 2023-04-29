@@ -42,5 +42,5 @@ else
 prev_node->next = new_node;
 new_node->next = current_node;
 
-return new_node;
+return (new_node);
 }

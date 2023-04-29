@@ -18,6 +18,6 @@ current = current->next;
 count++;
 }
 
-return (count == index) ? current : NULL;
+return (count == index) ? (current) : (NULL);
 }
 
