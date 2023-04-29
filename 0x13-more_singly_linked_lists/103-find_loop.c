@@ -8,26 +8,26 @@
 
 listint_t *find_listint_loop(listint_t *head)
 {
-listint_t *slow = head;
-listint_t *fast = head;
-while (slow != NULL && fast != NULL && fast->next != NULL)
-{
-slow = slow->next;
-fast = fast->next->next;
-if (slow == fast)
-{
-break;
-}
-}
-if (slow == NULL || fast == NULL || fast->next == NULL)
-{
-return (NULL);
-}
-slow = head;
-while (slow != fast)
-{
-slow = slow->next;
-fast = fast->next;
-}
-return (slow);
+	listint_t *tortoise, *hare;
+
+	if (!head)
+		return (NULL);
+	tortoise = head;
+	hare = head;
+	while (hare->next && hare->next->next)
+	{
+		hare = hare->next->next;
+		tortoise = tortoise->next;
+		if (hare == tortoise)
+		{
+			tortoise = head;
+			while (tortoise != hare)
+			{
+				tortoise = tortoise->next;
+				hare = hare->next;
+			}
+			return (hare);
+		}
+	}
+	return (NULL);
 }
