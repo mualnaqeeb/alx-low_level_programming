@@ -4,11 +4,12 @@
 #include <string.h>
 
 /**
- * print_listint - prints all the elements of a listint_t list
- * @h: pointer to the list
+ * print_listint - function that prints all the elements of a listint_t list
+ * @h: pointer to the struct listint_t
  *
- * Return: the number of nodes
+ * Return: size_t, number of nodes in the linked list
  */
+
 size_t print_listint(const listint_t *h)
 {
 	size_t count;
@@ -20,3 +21,4 @@ size_t print_listint(const listint_t *h)
 	}
 	return (count);
 }
+
