@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <stdlib.h>
 #include <stdio.h>
 
 /**
@@ -10,28 +11,30 @@
 
 size_t print_listint_safe(const listint_t *head)
 {
-	const listint_t *current;
-	size_t count;
-	const listint_t *hold;
+    const listint_t *current, *next;
+    size_t count = 0;
 
-	current = head;
-	if (current == NULL)
-		exit(98);
+    if (head == NULL)
+        exit(98);
 
-	count = 0;
-	while (current != NULL)
-	{
-		hold = current;
-		current = current->next;
-		count++;
-		printf("[%p] %d\n", (void *)hold, hold->n);
+    current = head;
 
-		if (hold < current)
-		{
-			printf("-> [%p] %d\n", (void *)current, current->n);
-			break;
-		}
-	}
+    while (current != NULL)
+    {
+        printf("[%p] %d\n", (void *)current, current->n);
+        count++;
 
-	return (count);
+        next = current->next;
+
+        /* Check if the next node has already been visited */
+        if (next != NULL && next <= current)
+        {
+            printf("-> [%p] %d\n", (void *)next, next->n);
+            exit(98);
+        }
+
+        current = next;
+    }
+
+    return (count);
 }
