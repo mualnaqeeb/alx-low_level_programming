@@ -2,6 +2,10 @@
 #define LISTS_H
 
 #include <stdlib.h>
+#include <stdio.h>
+#include <stdarg.h>
+
+int _putchar(char c);
 
 /**
  * struct listint_s - singly linked list
